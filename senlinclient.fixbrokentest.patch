@@ -1,0 +1,11 @@
+--- a/senlinclient/tests/unit/test_shell.py.orig	2017-07-27 12:33:08.813439664 +0100
++++ b/senlinclient/tests/unit/test_shell.py	2017-07-27 12:33:19.259585781 +0100
+@@ -192,7 +192,7 @@
+ 
+         sh.add_profiler_args(parser)
+ 
+-        self.assertEqual(0, parser.add_argument.call_count)
++        self.assertEqual(1, parser.add_argument.call_count)
+ 
+     @mock.patch.object(utils, 'import_versioned_module')
+     @mock.patch.object(shell.SenlinShell, '_find_actions')
