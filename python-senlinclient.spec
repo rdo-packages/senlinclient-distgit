@@ -48,7 +48,7 @@ BuildRequires:  python-six
 
 Requires:       python-babel >= 2.3.4
 Requires:       python-heatclient >= 1.6.1
-Requires:       python-keystoneauth1 >= 2.21.0
+Requires:       python-keystoneauth1 >= 3.1.0
 Requires:       python-openstacksdk >= 0.9.17
 Requires:       python-osc-lib >= 1.7.0
 Requires:       python-oslo-i18n >= 2.1.0
@@ -58,6 +58,7 @@ Requires:       python-pbr >= 2.0.0
 Requires:       python-prettytable >= 0.7.1
 Requires:       python-requests
 Requires:       python-six >= 1.9.0
+Requires:       PyYAML >= 3.10
 
 %description -n python2-%{sclient}
 %{common_desc}
@@ -123,7 +124,7 @@ BuildRequires:  python3-six
 
 Requires:       python3-babel >= 2.3.4
 Requires:       python3-heatclient >= 1.6.1
-Requires:       python3-keystoneauth1 >= 2.21.0
+Requires:       python3-keystoneauth1 >= 3.1.0
 Requires:       python3-openstacksdk >= 0.9.17
 Requires:       python3-osc-lib >= 1.7.0
 Requires:       python3-oslo-i18n >= 2.1.0
@@ -133,6 +134,7 @@ Requires:       python3-pbr >= 2.0.0
 Requires:       python3-prettytable >= 0.7.1
 Requires:       python3-requests
 Requires:       python3-six >= 1.9.0
+Requires:       python3-PyYAML >= 3.10
 
 %description -n python3-%{sclient}
 OpenStack senlin client
