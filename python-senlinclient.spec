@@ -13,8 +13,8 @@ clustering API. It provides a Python API and \
 a command-line tool (senlin).
 
 Name:       %{client}
-Version:    XXX
-Release:    XXX
+Version:    1.4.0
+Release:    1%{?dist}
 Summary:    OpenStack Senlin client
 License:    ASL 2.0
 URL:        http://launchpad.net/%{client}/
@@ -241,3 +241,6 @@ ostestr -p --black-regex test_do_add_profiler_args
 %endif # with_python3
 
 %changelog
+* Thu Aug 24 2017 Alfredo Moralejo <amoralej@redhat.com> 1.4.0-1
+- Update to 1.4.0
+
