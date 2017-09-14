@@ -76,7 +76,7 @@ Requires:       python-requests-mock
 Requires:       python-mock
 Requires:       python-oslotest
 Requires:       python-pep8
-Requires:       python-testrepository
+Requires:       python-stestr
 Requires:       python-testscenarios
 Requires:       python-testtools
 
@@ -151,7 +151,7 @@ Requires:       python3-oslo-serialization
 Requires:       python3-pbr
 Requires:       python3-setuptools
 Requires:       python3-subunit
-Requires:       python3-testrepository
+Requires:       python3-stestr
 Requires:       python3-testtools
 Requires:       python3-mock
 
