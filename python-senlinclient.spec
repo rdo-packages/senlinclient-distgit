@@ -121,6 +121,7 @@ BuildRequires:  python3-pbr
 BuildRequires:  python3-prettytable
 BuildRequires:  python3-requests
 BuildRequires:  python3-six
+BuildRequires:  python3-os-testr
 
 Requires:       python3-babel >= 2.3.4
 Requires:       python3-heatclient >= 1.6.1
