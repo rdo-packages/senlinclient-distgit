@@ -1,0 +1,8 @@
+Code-Review+2: Christopher Brown <snecklifter@gmail.com>
+Workflow+1: Christopher Brown <snecklifter@gmail.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Tue, 03 Oct 2017 14:32:28 +0000
+Reviewed-on: https://review.rdoproject.org/r/9896
+Project: openstack/senlinclient-distgit
+Branch: refs/heads/rpm-master
