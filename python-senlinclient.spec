@@ -184,7 +184,7 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %endif
 
-%{__python2} setup.py build_sphinx --builder man
+%{__python2} setup.py build_sphinx --builder html
 
 %install
 
@@ -195,7 +195,6 @@ ln -s ./%{executable}-%{python3_version} %{buildroot}%{_bindir}/%{executable}-3
 %endif
 
 %py2_install
-install -p -D -m 644 doc/build/man/%{executable}.1 %{buildroot}%{_mandir}/man1/%{executable}.1
 mv %{buildroot}%{_bindir}/%{executable} %{buildroot}%{_bindir}/%{executable}-%{python2_version}
 ln -s ./%{executable}-%{python2_version} %{buildroot}%{_bindir}/%{executable}-2
 ln -s ./%{executable}-2 %{buildroot}%{_bindir}/%{executable}
@@ -212,7 +211,6 @@ ostestr -p --black-regex test_do_add_profiler_args
 %{python2_sitelib}/%{sclient}
 %{python2_sitelib}/*.egg-info
 %exclude %{python2_sitelib}/%{sclient}/tests
-%{_mandir}/man1/*
 %{_bindir}/%{executable}
 %{_bindir}/%{executable}-2
 %{_bindir}/%{executable}-%{python2_version}
@@ -241,6 +239,3 @@ ostestr -p --black-regex test_do_add_profiler_args
 %endif # with_python3
 
 %changelog
-* Thu Aug 24 2017 Alfredo Moralejo <amoralej@redhat.com> 1.4.0-1
-- Update to 1.4.0
-
