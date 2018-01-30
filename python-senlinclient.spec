@@ -185,21 +185,12 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %endif
 
-%{__python2} setup.py build_sphinx --builder man
-
 %install
 
 %if 0%{?with_python3}
 %py3_install
-mv %{buildroot}%{_bindir}/%{executable} %{buildroot}%{_bindir}/%{executable}-%{python3_version}
-ln -s ./%{executable}-%{python3_version} %{buildroot}%{_bindir}/%{executable}-3
 %endif
-
 %py2_install
-install -p -D -m 644 doc/build/man/%{executable}.1 %{buildroot}%{_mandir}/man1/%{executable}.1
-mv %{buildroot}%{_bindir}/%{executable} %{buildroot}%{_bindir}/%{executable}-%{python2_version}
-ln -s ./%{executable}-%{python2_version} %{buildroot}%{_bindir}/%{executable}-2
-ln -s ./%{executable}-2 %{buildroot}%{_bindir}/%{executable}
 
 %check
 #%{__python2} setup.py testr
@@ -213,10 +204,6 @@ ostestr -p --black-regex test_do_add_profiler_args
 %{python2_sitelib}/%{sclient}
 %{python2_sitelib}/*.egg-info
 %exclude %{python2_sitelib}/%{sclient}/tests
-%{_mandir}/man1/*
-%{_bindir}/%{executable}
-%{_bindir}/%{executable}-2
-%{_bindir}/%{executable}-%{python2_version}
 
 %files -n python2-%{sclient}-tests-unit
 %{python2_sitelib}/%{sclient}/tests
@@ -234,8 +221,6 @@ ostestr -p --black-regex test_do_add_profiler_args
 %{python3_sitelib}/%{sclient}
 %{python3_sitelib}/*.egg-info
 %exclude %{python3_sitelib}/%{sclient}/tests
-%{_bindir}/%{executable}-%{python3_version}
-%{_bindir}/%{executable}-3
 
 %files -n python3-%{sclient}-tests-unit
 %{python3_sitelib}/%{sclient}/tests
