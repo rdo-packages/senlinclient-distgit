@@ -227,3 +227,4 @@ ostestr -p --black-regex test_do_add_profiler_args
 %endif # with_python3
 
 %changelog
+# REMOVEME: error caused by commit https://github.com/openstack/python-senlinclient/commit/703f41ad5bb4d201401f2455e3370b3b568f7c75
