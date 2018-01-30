@@ -1,0 +1,11 @@
+Code-Review+2: hguemar <hguemar@fedoraproject.org>
+Code-Review+2: Javier Peña <jpena@redhat.com>
+Workflow+1: Javier Peña <jpena@redhat.com>
+Code-Review+2: Christopher Brown <snecklifter@gmail.com>
+Workflow+1: Christopher Brown <snecklifter@gmail.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Tue, 30 Jan 2018 13:52:28 +0000
+Reviewed-on: https://review.rdoproject.org/r/11643
+Project: openstack/senlinclient-distgit
+Branch: refs/heads/rpm-master
