@@ -31,34 +31,38 @@ Summary:    OpenStack Senlin client
 BuildRequires:  git
 BuildRequires:  openstack-macros
 BuildRequires:  python2-devel
-BuildRequires:  python-babel
-BuildRequires:  python-heatclient
-BuildRequires:  python-keystoneauth1
-BuildRequires:  python-mock
-BuildRequires:  python-openstacksdk
-BuildRequires:  python-osc-lib
-BuildRequires:  python-oslo-i18n
-BuildRequires:  python-oslo-log
-BuildRequires:  python-oslo-serialization
-BuildRequires:  python-oslo-utils
-BuildRequires:  python-pbr
-BuildRequires:  python-prettytable
-BuildRequires:  python-requests
-BuildRequires:  python-six
+BuildRequires:  python2-babel
+BuildRequires:  python2-heatclient
+BuildRequires:  python2-keystoneauth1
+BuildRequires:  python2-mock
+BuildRequires:  python2-openstacksdk
+BuildRequires:  python2-osc-lib
+BuildRequires:  python2-oslo-i18n
+BuildRequires:  python2-oslo-log
+BuildRequires:  python2-oslo-serialization
+BuildRequires:  python2-oslo-utils
+BuildRequires:  python2-pbr
+BuildRequires:  python2-prettytable
+BuildRequires:  python2-requests
+BuildRequires:  python2-six
 
-Requires:       python-babel >= 2.3.4
-Requires:       python-heatclient >= 1.6.1
-Requires:       python-keystoneauth1 >= 3.1.0
-Requires:       python-openstacksdk >= 0.9.17
-Requires:       python-osc-lib >= 1.7.0
-Requires:       python-oslo-i18n >= 2.1.0
-Requires:       python-oslo-serialization >= 1.10.0
-Requires:       python-oslo-utils >= 3.20.0
-Requires:       python-pbr >= 2.0.0
-Requires:       python-prettytable >= 0.7.1
-Requires:       python-requests
-Requires:       python-six >= 1.9.0
+Requires:       python2-babel >= 2.3.4
+Requires:       python2-heatclient >= 1.10.0
+Requires:       python2-keystoneauth1 >= 3.3.0
+Requires:       python2-openstacksdk >= 0.9.19
+Requires:       python2-osc-lib >= 1.8.0
+Requires:       python2-oslo-i18n >= 3.15.3
+Requires:       python2-oslo-serialization >= 2.18.0
+Requires:       python2-oslo-utils >= 3.33.0
+Requires:       python2-pbr >= 2.0.0
+Requires:       python2-prettytable >= 0.7.1
+Requires:       python2-requests
+Requires:       python2-six >= 1.10.0
+%if 0%{?fedora} > 0
+Requires:       python2-pyyaml >= 3.10
+%else
 Requires:       PyYAML >= 3.10
+%endif
 
 %description -n python2-%{sclient}
 %{common_desc}
@@ -71,14 +75,19 @@ BuildRequires:  python-osc-lib-tests
 
 Requires:       python2-%{sclient} = %{version}-%{release}
 
-Requires:       python-fixtures
+Requires:       python2-fixtures
+Requires:       python2-mock
+Requires:       python2-oslotest
+Requires:       python2-pep8
+Requires:       python2-stestr
+Requires:       python2-testtools
+%if 0%{?fedora} > 0
+Requires:       python2-requests-mock
+Requires:       python2-testscenarios
+%else
 Requires:       python-requests-mock
-Requires:       python-mock
-Requires:       python-oslotest
-Requires:       python-pep8
-Requires:       python-stestr
 Requires:       python-testscenarios
-Requires:       python-testtools
+%endif
 
 
 %description -n python2-%{sclient}-tests-unit
@@ -91,8 +100,8 @@ This package contains the senlin client unit test files.
 %package -n python-%{sclient}-doc
 Summary:    OpenStack senlin client documentation
 
-BuildRequires:  python-openstackdocstheme
-BuildRequires:  python-sphinx
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-sphinx
 
 %description -n python-%{sclient}-doc
 %{common_desc}
@@ -124,17 +133,17 @@ BuildRequires:  python3-six
 BuildRequires:  python3-os-testr
 
 Requires:       python3-babel >= 2.3.4
-Requires:       python3-heatclient >= 1.6.1
-Requires:       python3-keystoneauth1 >= 3.1.0
-Requires:       python3-openstacksdk >= 0.9.17
-Requires:       python3-osc-lib >= 1.7.0
-Requires:       python3-oslo-i18n >= 2.1.0
-Requires:       python3-oslo-serialization >= 1.10.0
-Requires:       python3-oslo-utils >= 3.20.0
+Requires:       python3-heatclient >= 1.10.0
+Requires:       python3-keystoneauth1 >= 3.3.0
+Requires:       python3-openstacksdk >= 0.9.19
+Requires:       python3-osc-lib >= 1.8.0
+Requires:       python3-oslo-i18n >= 3.15.3
+Requires:       python3-oslo-serialization >= 2.18.0
+Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pbr >= 2.0.0
 Requires:       python3-prettytable >= 0.7.1
 Requires:       python3-requests
-Requires:       python3-six >= 1.9.0
+Requires:       python3-six >= 1.10.0
 Requires:       python3-PyYAML >= 3.10
 
 %description -n python3-%{sclient}
