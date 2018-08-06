@@ -48,14 +48,14 @@ BuildRequires:  python2-six
 
 Requires:       python2-babel >= 2.3.4
 Requires:       python2-heatclient >= 1.10.0
-Requires:       python2-keystoneauth1 >= 3.3.0
-Requires:       python2-openstacksdk >= 0.9.19
-Requires:       python2-osc-lib >= 1.8.0
+Requires:       python2-keystoneauth1 >= 3.4.0
+Requires:       python2-openstacksdk >= 0.11.2
+Requires:       python2-osc-lib >= 1.10.0
 Requires:       python2-oslo-i18n >= 3.15.3
 Requires:       python2-oslo-serialization >= 2.18.0
 Requires:       python2-oslo-utils >= 3.33.0
 Requires:       python2-pbr >= 2.0.0
-Requires:       python2-prettytable >= 0.7.1
+Requires:       python2-prettytable >= 0.7.2
 Requires:       python2-requests
 Requires:       python2-six >= 1.10.0
 %if 0%{?fedora} > 0
@@ -135,14 +135,14 @@ BuildRequires:  python3-os-testr
 
 Requires:       python3-babel >= 2.3.4
 Requires:       python3-heatclient >= 1.10.0
-Requires:       python3-keystoneauth1 >= 3.3.0
-Requires:       python3-openstacksdk >= 0.9.19
-Requires:       python3-osc-lib >= 1.8.0
+Requires:       python3-keystoneauth1 >= 3.4.0
+Requires:       python3-openstacksdk >= 0.11.2
+Requires:       python3-osc-lib >= 1.10.0
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-serialization >= 2.18.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pbr >= 2.0.0
-Requires:       python3-prettytable >= 0.7.1
+Requires:       python3-prettytable >= 0.7.2
 Requires:       python3-requests
 Requires:       python3-six >= 1.10.0
 Requires:       python3-PyYAML >= 3.10
