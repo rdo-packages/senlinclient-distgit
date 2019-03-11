@@ -59,7 +59,7 @@ BuildRequires:  python%{pyver}-six
 Requires:       python%{pyver}-babel >= 2.3.4
 Requires:       python%{pyver}-heatclient >= 1.10.0
 Requires:       python%{pyver}-keystoneauth1 >= 3.4.0
-Requires:       python%{pyver}-openstacksdk >= 0.11.2
+Requires:       python%{pyver}-openstacksdk >= 0.24.0
 Requires:       python%{pyver}-osc-lib >= 1.10.0
 Requires:       python%{pyver}-oslo-i18n >= 3.15.3
 Requires:       python%{pyver}-oslo-serialization >= 2.18.0
