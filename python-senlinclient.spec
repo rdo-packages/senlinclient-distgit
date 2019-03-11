@@ -21,8 +21,8 @@ clustering API. It provides a Python API and \
 a command-line tool (senlin).
 
 Name:       %{client}
-Version:    XXX
-Release:    XXX
+Version:    1.10.1
+Release:    1%{?dist}
 Summary:    OpenStack Senlin client
 License:    ASL 2.0
 URL:        http://launchpad.net/%{client}/
@@ -162,3 +162,6 @@ ostestr -p --black-regex test_do_add_profiler_args
 %endif
 
 %changelog
+* Mon Mar 11 2019 RDO <dev@lists.rdoproject.org> 1.10.1-1
+- Update to 1.10.1
+
