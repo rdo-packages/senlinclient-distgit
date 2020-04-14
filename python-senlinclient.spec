@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global client python-senlinclient
@@ -34,74 +23,64 @@ BuildArch:  noarch
 %description
 %{common_desc}
 
-%package -n python%{pyver}-%{sclient}
+%package -n python3-%{sclient}
 Summary:    OpenStack Senlin client
-%{?python_provide:%python_provide python%{pyver}-%{sclient}}
+%{?python_provide:%python_provide python3-%{sclient}}
 
 BuildRequires:  git
 BuildRequires:  openstack-macros
-BuildRequires:  python%{pyver}-devel
-BuildRequires:  python%{pyver}-babel
-BuildRequires:  python%{pyver}-heatclient
-BuildRequires:  python%{pyver}-keystoneauth1
-BuildRequires:  python%{pyver}-mock
-BuildRequires:  python%{pyver}-openstacksdk
-BuildRequires:  python%{pyver}-osc-lib
-BuildRequires:  python%{pyver}-oslo-i18n
-BuildRequires:  python%{pyver}-oslo-log
-BuildRequires:  python%{pyver}-oslo-serialization
-BuildRequires:  python%{pyver}-oslo-utils
-BuildRequires:  python%{pyver}-pbr
-BuildRequires:  python%{pyver}-prettytable
-BuildRequires:  python%{pyver}-requests
-BuildRequires:  python%{pyver}-six
 
-Requires:       python%{pyver}-babel >= 2.3.4
-Requires:       python%{pyver}-heatclient >= 1.10.0
-Requires:       python%{pyver}-keystoneauth1 >= 3.4.0
-Requires:       python%{pyver}-openstacksdk >= 0.24.0
-Requires:       python%{pyver}-osc-lib >= 1.10.0
-Requires:       python%{pyver}-oslo-i18n >= 3.15.3
-Requires:       python%{pyver}-oslo-serialization >= 2.18.0
-Requires:       python%{pyver}-oslo-utils >= 3.33.0
-Requires:       python%{pyver}-pbr >= 2.0.0
-Requires:       python%{pyver}-prettytable >= 0.7.2
-Requires:       python%{pyver}-requests
-Requires:       python%{pyver}-six >= 1.10.0
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       PyYAML >= 3.10
-%else
-Requires:       python%{pyver}-PyYAML >= 3.10
-%endif
+BuildRequires:  python3-devel
+BuildRequires:  python3-babel
+BuildRequires:  python3-heatclient
+BuildRequires:  python3-keystoneauth1
+BuildRequires:  python3-mock
+BuildRequires:  python3-openstacksdk
+BuildRequires:  python3-osc-lib
+BuildRequires:  python3-oslo-i18n
+BuildRequires:  python3-oslo-log
+BuildRequires:  python3-oslo-serialization
+BuildRequires:  python3-oslo-utils
+BuildRequires:  python3-pbr
+BuildRequires:  python3-prettytable
+BuildRequires:  python3-requests
+BuildRequires:  python3-six
 
-%description -n python%{pyver}-%{sclient}
+Requires:       python3-babel >= 2.3.4
+Requires:       python3-heatclient >= 1.10.0
+Requires:       python3-keystoneauth1 >= 3.4.0
+Requires:       python3-openstacksdk >= 0.24.0
+Requires:       python3-osc-lib >= 1.10.0
+Requires:       python3-oslo-i18n >= 3.15.3
+Requires:       python3-oslo-serialization >= 2.18.0
+Requires:       python3-oslo-utils >= 3.33.0
+Requires:       python3-pbr >= 2.0.0
+Requires:       python3-prettytable >= 0.7.2
+Requires:       python3-requests
+Requires:       python3-six >= 1.10.0
+Requires:       python3-PyYAML >= 3.10
+
+%description -n python3-%{sclient}
 %{common_desc}
 
 
-%package -n python%{pyver}-%{sclient}-tests-unit
+%package -n python3-%{sclient}-tests-unit
 Summary:    OpenStack senlin client unit tests
-BuildRequires:  python%{pyver}-os-testr
-BuildRequires:  python%{pyver}-osc-lib-tests
+BuildRequires:  python3-os-testr
+BuildRequires:  python3-osc-lib-tests
 
-Requires:       python%{pyver}-%{sclient} = %{version}-%{release}
+Requires:       python3-%{sclient} = %{version}-%{release}
 
-Requires:       python%{pyver}-fixtures
-Requires:       python%{pyver}-mock
-Requires:       python%{pyver}-oslotest
-Requires:       python%{pyver}-stestr
-Requires:       python%{pyver}-testtools
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       python-requests-mock
-Requires:       python-testscenarios
-%else
-Requires:       python%{pyver}-requests-mock
-Requires:       python%{pyver}-testscenarios
-%endif
+Requires:       python3-fixtures
+Requires:       python3-mock
+Requires:       python3-oslotest
+Requires:       python3-stestr
+Requires:       python3-testtools
+Requires:       python3-requests-mock
+Requires:       python3-testscenarios
 
 
-%description -n python%{pyver}-%{sclient}-tests-unit
+%description -n python3-%{sclient}-tests-unit
 %{common_desc}
 
 This package contains the senlin client unit test files.
@@ -111,8 +90,8 @@ This package contains the senlin client unit test files.
 %package -n python-%{sclient}-doc
 Summary:    OpenStack senlin client documentation
 
-BuildRequires:  python%{pyver}-openstackdocstheme
-BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python3-openstackdocstheme
+BuildRequires:  python3-sphinx
 
 %description -n python-%{sclient}-doc
 %{common_desc}
@@ -127,33 +106,32 @@ This package contains the documentation.
 %py_req_cleanup
 
 %build
-%{pyver_build}
+%{py3_build}
 
 %if 0%{?with_doc}
-sphinx-build-%{pyver} -b html doc/source doc/build/html
+sphinx-build-3 -b html doc/source doc/build/html
 rm -rf doc/build/html/.{doctrees,buildinfo}
 
 %endif
 
 %install
-%{pyver_install}
+%{py3_install}
 
 %check
-#%{pyver_bin} setup.py testr
 #FIXME: temporarily blacklist broken unit test
 # https://review.rdoproject.org/r/#/c/8381/
-export PYTHON=%{pyver_bin}
+export PYTHON=python3
 ostestr -p --black-regex test_do_add_profiler_args
 
-%files -n python%{pyver}-%{sclient}
+%files -n python3-%{sclient}
 %license LICENSE
 %doc README.rst
-%{pyver_sitelib}/%{sclient}
-%{pyver_sitelib}/*.egg-info
-%exclude %{pyver_sitelib}/%{sclient}/tests
+%{python3_sitelib}/%{sclient}
+%{python3_sitelib}/*.egg-info
+%exclude %{python3_sitelib}/%{sclient}/tests
 
-%files -n python%{pyver}-%{sclient}-tests-unit
-%{pyver_sitelib}/%{sclient}/tests
+%files -n python3-%{sclient}-tests-unit
+%{python3_sitelib}/%{sclient}/tests
 
 %if 0%{?with_doc}
 %files -n python-%{sclient}-doc
