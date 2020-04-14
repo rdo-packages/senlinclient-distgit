@@ -68,12 +68,7 @@ Requires:       python%{pyver}-pbr >= 2.0.0
 Requires:       python%{pyver}-prettytable >= 0.7.2
 Requires:       python%{pyver}-requests
 Requires:       python%{pyver}-six >= 1.10.0
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       PyYAML >= 3.10
-%else
 Requires:       python%{pyver}-PyYAML >= 3.10
-%endif
 
 %description -n python%{pyver}-%{sclient}
 %{common_desc}
@@ -91,14 +86,8 @@ Requires:       python%{pyver}-mock
 Requires:       python%{pyver}-oslotest
 Requires:       python%{pyver}-stestr
 Requires:       python%{pyver}-testtools
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:       python-requests-mock
-Requires:       python-testscenarios
-%else
 Requires:       python%{pyver}-requests-mock
 Requires:       python%{pyver}-testscenarios
-%endif
 
 
 %description -n python%{pyver}-%{sclient}-tests-unit
