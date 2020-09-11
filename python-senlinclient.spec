@@ -31,7 +31,6 @@ BuildRequires:  git
 BuildRequires:  openstack-macros
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-babel
 BuildRequires:  python3-heatclient
 BuildRequires:  python3-keystoneauth1
 BuildRequires:  python3-mock
@@ -44,20 +43,17 @@ BuildRequires:  python3-oslo-utils
 BuildRequires:  python3-pbr
 BuildRequires:  python3-prettytable
 BuildRequires:  python3-requests
-BuildRequires:  python3-six
 
-Requires:       python3-babel >= 2.3.4
 Requires:       python3-heatclient >= 1.10.0
 Requires:       python3-keystoneauth1 >= 3.4.0
 Requires:       python3-openstacksdk >= 0.24.0
-Requires:       python3-osc-lib >= 1.10.0
+Requires:       python3-osc-lib >= 1.11.0
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-serialization >= 2.18.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pbr >= 2.0.0
 Requires:       python3-prettytable >= 0.7.2
 Requires:       python3-requests
-Requires:       python3-six >= 1.10.0
 Requires:       python3-PyYAML >= 3.10
 
 %description -n python3-%{sclient}
