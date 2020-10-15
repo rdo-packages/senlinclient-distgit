@@ -1,3 +1,5 @@
+%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
+%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global client python-senlinclient
@@ -11,14 +13,25 @@ a command-line tool (senlin).
 
 Name:       %{client}
 Version:    2.1.1
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    OpenStack Senlin client
 License:    ASL 2.0
 URL:        http://launchpad.net/%{client}/
 
 Source0:    http://tarballs.openstack.org/%{client}/%{client}-%{upstream_version}.tar.gz
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+Source101:        http://tarballs.openstack.org/%{client}/%{client}-%{upstream_version}.tar.gz.asc
+Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
+%endif
 
 BuildArch:  noarch
+
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+BuildRequires:  /usr/bin/gpgv2
+BuildRequires:  openstack-macros
+%endif
 
 %description
 %{common_desc}
@@ -96,6 +109,10 @@ This package contains the documentation.
 %endif
 
 %prep
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+%{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
+%endif
 %autosetup -n %{client}-%{upstream_version} -S git
 
 # Let's handle dependencies ourseleves
@@ -136,6 +153,9 @@ ostestr -p --black-regex test_do_add_profiler_args
 %endif
 
 %changelog
+* Wed Oct 21 2020 Joel Capitao <jcapitao@redhat.com> 2.1.1-2
+- Enable sources tarball validation using GPG signature.
+
 * Fri Sep 18 2020 RDO <dev@lists.rdoproject.org> 2.1.1-1
 - Update to 2.1.1
 
