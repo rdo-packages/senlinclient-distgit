@@ -40,7 +40,7 @@ BuildRequires:  openstack-macros
 Summary:    OpenStack Senlin client
 %{?python_provide:%python_provide python3-%{sclient}}
 
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  openstack-macros
 
 BuildRequires:  python3-devel
