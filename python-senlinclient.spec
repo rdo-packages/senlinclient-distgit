@@ -58,7 +58,7 @@ BuildRequires:  python3-prettytable
 BuildRequires:  python3-requests
 
 Requires:       python3-heatclient >= 1.10.0
-Requires:       python3-keystoneauth1 >= 3.4.0
+Requires:       python3-keystoneauth1 >= 3.11.0
 Requires:       python3-openstacksdk >= 0.24.0
 Requires:       python3-osc-lib >= 1.11.0
 Requires:       python3-oslo-i18n >= 3.15.3
@@ -67,7 +67,7 @@ Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pbr >= 2.0.0
 Requires:       python3-prettytable >= 0.7.2
 Requires:       python3-requests
-Requires:       python3-PyYAML >= 3.10
+Requires:       python3-PyYAML >= 5.3.1
 
 %description -n python3-%{sclient}
 %{common_desc}
