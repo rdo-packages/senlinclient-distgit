@@ -131,10 +131,8 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %{py3_install}
 
 %check
-#FIXME: temporarily blacklist broken unit test
-# https://review.rdoproject.org/r/#/c/8381/
 export PYTHON=python3
-ostestr -p --black-regex test_do_add_profiler_args
+stestr run
 
 %files -n python3-%{sclient}
 %license LICENSE
